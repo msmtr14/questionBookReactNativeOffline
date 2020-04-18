@@ -3,3 +3,4 @@ export * from './misc';
 export * from './screenDimensions';
 export * from './uniquesId';
 export * from './validations';
+export * from './screenInterfaces';

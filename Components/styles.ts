@@ -70,4 +70,35 @@ export const styles = StyleSheet.create({
     flex: 1,
     ...CENTER,
   },
+  quesCardBody: {
+    width: '100%',
+    backgroundColor: '#0275d8',
+    minHeight: 80,
+    alignSelf: 'center',
+    borderRadius: 10,
+    paddingHorizontal: '2.5%',
+    paddingVertical: 15,
+    marginTop: 20,
+    elevation: 2,
+    shadowOpacity: 0.6,
+    shadowOffset: {
+      width: 1,
+      height: 1,
+    },
+    shadowColor: '#aaa',
+  },
+  quesCardText: {
+    color: '#fff',
+    fontSize: 18,
+    textAlign: 'justify',
+  },
+  quesCardBtn: {
+    backgroundColor: 'white',
+    minWidth: '50%',
+    alignSelf: 'center',
+    marginTop: 20,
+  },
+  quesCardBtnTxt: {
+    color: '#0275d8',
+  },
 });

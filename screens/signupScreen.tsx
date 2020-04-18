@@ -41,9 +41,8 @@ export class SignupScreen extends Component<Props> {
 
   render() {
     const {name, email, joiningDate} = this.state;
-    console.warn(this.props.isAuth);
     if (this.props.isAuth) {
-      // this.props.navigation.navigate('');
+      this.props.navigation.navigate('HomeScreen');
     }
     return (
       <Screen headerTitle={'SignUp Screen'}>

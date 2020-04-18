@@ -28,7 +28,7 @@ function questionReducer(
       };
 
     case UPDATE_QUESTION_ANSWER:
-      return {...state, studentQuestions: action.payload};
+      return {...state, studentQuestionsUpdate: action.payload};
 
     default:
       return state;

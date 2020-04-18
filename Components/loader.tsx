@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {Text, View, ActivityIndicator} from 'react-native';
+import {View, ActivityIndicator} from 'react-native';
 import {styles} from './styles';
+import {Text} from './text';
 
 interface LoaderProps {
   color?: string;
@@ -17,4 +18,4 @@ const Loader: React.FunctionComponent<LoaderProps> = ({color, size, title}) => {
   );
 };
 
-export default Loader;
+export {Loader};

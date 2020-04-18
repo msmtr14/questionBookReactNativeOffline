@@ -5,4 +5,5 @@ export interface ComponentReduxPropsConfig {
 
 export interface SignupScreenProps extends ComponentReduxPropsConfig {
   questionReducer?: any;
+  isAuth?: boolean;
 }

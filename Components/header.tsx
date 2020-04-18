@@ -3,7 +3,7 @@ import {View, ViewStyle} from 'react-native';
 import {styles} from './styles';
 import {withNavigation} from 'react-navigation';
 import IoniconIcon from 'react-native-vector-icons/Ionicons';
-import Text from './text';
+import {Text} from './text';
 
 IoniconIcon.loadFont();
 interface HeaderProps {

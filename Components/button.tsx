@@ -1,7 +1,7 @@
 import React, {FunctionComponent} from 'react';
 import {TouchableOpacity, TextStyle, ViewStyle} from 'react-native';
 import {styles} from './styles';
-import Text from './text';
+import {Text} from './text';
 
 interface ButtonPropsConfig {
   title?: string;
@@ -25,4 +25,4 @@ const Button: FunctionComponent<ButtonPropsConfig> = ({
   );
 };
 
-export default Button;
+export {Button};

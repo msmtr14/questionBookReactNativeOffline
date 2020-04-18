@@ -19,7 +19,7 @@ interface ScreenPropsConfig {
   rest?: SafeAreaViewProps;
 }
 
-export default class Screen extends Component<ScreenPropsConfig> {
+export class Screen extends Component<ScreenPropsConfig> {
   render() {
     const {
       preset,

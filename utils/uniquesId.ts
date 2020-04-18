@@ -1,1 +1,2 @@
-export const uniqueId = require('uuid/v4');
+import {v4 as uniqueId} from 'uuid';
+export {uniqueId};

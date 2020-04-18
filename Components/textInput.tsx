@@ -54,4 +54,4 @@ const TextInput: FunctionComponent<RNTextProps> = ({
   );
 };
 
-export default TextInput;
+export {TextInput};

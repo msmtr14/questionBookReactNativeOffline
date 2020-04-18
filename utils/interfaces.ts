@@ -16,3 +16,7 @@ export interface QuestionReducerConfig {
   studentQuestions: StudentQuestionsConfig[];
   student: StudentProfileConfig[];
 }
+
+export interface AuthReducerConfig {
+  isAuth: boolean;
+}

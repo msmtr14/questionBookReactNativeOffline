@@ -26,4 +26,4 @@ const Text: FunctionComponent<RNTextProps> = ({
   );
 };
 
-export default Text;
+export {Text};

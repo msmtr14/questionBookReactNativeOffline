@@ -13,8 +13,8 @@ type Props = SignupScreenProps & NavigationScreenProps;
 export class SignupScreen extends Component<Props> {
   state: any = {
     id: Math.floor(Math.random() * Math.pow(10, 9)),
-    name: '',
-    email: '',
+    name: 'Mohit',
+    email: 'mohit@gmail.com',
     joiningDate: new Date(),
     numberOfQuesAsked: 0,
   };
@@ -28,7 +28,7 @@ export class SignupScreen extends Component<Props> {
       joiningDate,
       numberOfQuesAsked,
     };
-    if (name.length > 3) {
+    if (name.length > 2) {
       if (ValidateEmail(email)) {
         this.props.dispatch(checkNewStudent(data));
       } else {
@@ -44,8 +44,9 @@ export class SignupScreen extends Component<Props> {
     if (this.props.isAuth) {
       this.props.navigation.navigate('HomeScreen');
     }
+    // console.warn(this.props.questionReducer);
     return (
-      <Screen headerTitle={'SignUp Screen'}>
+      <Screen headerTitle={'SignUp Screen'} nonSessionCheck hideHeaderBack>
         <View style={{...styles.formContainer}}>
           <View style={{...styles.formFieldView}}>
             <Text>Name: </Text>

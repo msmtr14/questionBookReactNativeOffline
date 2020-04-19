@@ -66,6 +66,7 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     left: '3%',
   },
+  headerIconRight: {position: 'absolute', right: '3%'},
   loader: {
     flex: 1,
     ...CENTER,

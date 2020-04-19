@@ -1,13 +1,14 @@
 export interface StudentQuestionsConfig {
   id: number;
   title: string;
+  answer?: string;
   hasAnswer?: boolean;
 }
 
 export interface StudentProfileConfig {
   id: number;
   name: string;
-  email?: boolean;
+  email?: string;
   joiningDate: string | number;
   numberOfQuesAsked: number;
 }
@@ -19,4 +20,5 @@ export interface QuestionReducerConfig {
 
 export interface AuthReducerConfig {
   isAuth: boolean;
+  profileData: StudentProfileConfig;
 }

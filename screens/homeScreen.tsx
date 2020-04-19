@@ -17,7 +17,9 @@ export class HomeScreen extends Component<Props> {
           <FlatList
             data={this.props.questionReducer.studentQuestions}
             keyExtractor={(item) => item.id}
-            renderItem={({item}) => <QuestionCard {...item} />}
+            renderItem={({item}) => (
+              <QuestionCard {...item} navigation={this.props.navigation} />
+            )}
           />
         ) : (
           <View

@@ -46,9 +46,10 @@ const Navigator = createStackNavigator(
   {
     SignupScreen: SCREENS.SignupScreen,
     HomeScreen: HomeScreenBottomTabs,
+    AnsTheQuesScreen: SCREENS.AnsTheQuesScreen,
   },
   {
-    initialRouteName: 'HomeScreen',
+    initialRouteName: 'SignupScreen',
     headerMode: 'none',
   },
 );

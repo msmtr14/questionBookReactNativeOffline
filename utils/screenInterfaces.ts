@@ -11,3 +11,8 @@ export interface HomeScreenProps extends ComponentReduxPropsConfig {
   questionReducer?: any;
   isAuth?: boolean;
 }
+
+export interface AskQuestionScreenProps extends ComponentReduxPropsConfig {
+  questionReducer?: any;
+  isAuth?: boolean;
+}

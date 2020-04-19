@@ -24,11 +24,11 @@ function questionReducer(
     case ADD_NEW_QUEST:
       return {
         ...state,
-        studentQuestions: [...state.studentQuestions, action.payload],
+        studentQuestions: [...state.studentQuestions, {...action.payload}],
       };
 
     case UPDATE_QUESTION_ANSWER:
-      return {...state, studentQuestionsUpdate: action.payload};
+      return {...state, studentQuestions: action.payload};
 
     default:
       return state;

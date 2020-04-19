@@ -47,7 +47,7 @@ const TextInput: FunctionComponent<RNTextProps> = ({
       onChangeText={onChangeText}
       value={!onlyNumber ? `${value}` : `${value}`.replace(/[^+0-9]/g, '')}
       keyboardType={keyboardType || 'default'}
-      maxLength={maxLength || 50}
+      maxLength={maxLength || (multiline ? Math.pow(10, 3) : 75)}
       multiline={multiline}
       {...rest}
     />

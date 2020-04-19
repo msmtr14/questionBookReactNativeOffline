@@ -16,6 +16,7 @@ interface ScreenPropsConfig {
   hideHeader?: boolean;
   hideHeaderBack?: boolean;
   headerTitle?: string;
+  nonSessionCheck?: boolean;
   rest?: SafeAreaViewProps;
 }
 
@@ -28,12 +29,17 @@ export class Screen extends Component<ScreenPropsConfig> {
       hideHeader,
       headerTitle,
       hideHeaderBack,
+      nonSessionCheck,
       rest,
     } = this.props;
     return (
       <SafeAreaView style={{...styles.screenContainer, ...style}} {...rest}>
         {!hideHeader && (
-          <Header nonBack={hideHeaderBack} title={headerTitle || ''} />
+          <Header
+            nonBack={hideHeaderBack}
+            title={headerTitle || ''}
+            nonSessionCheck={nonSessionCheck}
+          />
         )}
         {!preset || preset === 'scroll' ? (
           <ScrollView

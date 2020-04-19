@@ -1,3 +1,5 @@
+/* eslint-disable react/no-did-mount-set-state */
+/* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
 import {View, Alert} from 'react-native';
 import {connect} from 'react-redux';
@@ -18,6 +20,10 @@ export class AskQuestionScreen extends Component<Props> {
     hasAnswer: false,
   };
 
+  componentDidMount() {
+    this.setState({title: ''});
+  }
+
   _performAddQuest = () => {
     const {title, hasAnswer} = this.state;
     const data = {
@@ -32,10 +38,6 @@ export class AskQuestionScreen extends Component<Props> {
     }
   };
 
-  componentWillUnmount() {
-    this.setState({title: ''});
-  }
-
   render() {
     const {title} = this.state;
     return (
@@ -47,7 +49,7 @@ export class AskQuestionScreen extends Component<Props> {
               onChangeText={(text: string) => this.setState({title: text})}
               value={title}
               multiline
-              style={{minHeight: containerHieght}}
+              style={{minHeight: containerHieght, textAlignVertical: 'top'}}
             />
           </View>
         </View>

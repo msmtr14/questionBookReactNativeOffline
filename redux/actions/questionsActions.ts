@@ -35,6 +35,7 @@ export const addNewQuest = (data: StudentQuestionsConfig) => {
   const ques = student.profileData.studentQuestions;
   ques.push({...data});
   AllStudent[student.indexOfStudent].studentQuestions = ques;
+  AllStudent[student.indexOfStudent].numberOfQuesAsked += 1;
   dispatch(getUserProfile(AllStudent[student.indexOfStudent]));
 
   return {
@@ -50,6 +51,7 @@ export const updateAns = (data: StudentQuestionsConfig) => {
   const quesInd = ques.findIndex((a: StudentProfileConfig) => a.id === data.id);
   ques[quesInd] = data;
   AllStudent[student.indexOfStudent].studentQuestions = ques;
+  AllStudent[student.indexOfStudent].numberOfQuesAsked += 1;
   dispatch(getUserProfile(AllStudent[student.indexOfStudent]));
   return {
     type: UPDATE_QUESTION_ANSWER,

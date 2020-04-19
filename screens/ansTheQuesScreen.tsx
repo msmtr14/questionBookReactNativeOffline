@@ -62,7 +62,7 @@ export class AnsTheQuesScreen extends Component<Props> {
               onChangeText={(text: string) => this.setState({answer: text})}
               value={answer}
               multiline
-              style={{minHeight: containerHieght}}
+              style={{minHeight: containerHieght, textAlignVertical: 'top'}}
             />
           </View>
         </View>

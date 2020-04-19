@@ -45,7 +45,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({
       {!nonSessionCheck && (
         <IoniconIcon
           name={`${Platform.OS === 'ios' ? 'ios' : 'md'}-log-out`}
-          size={38}
+          size={Platform.OS === 'ios' ? 36 : 28}
           style={{...styles.headerIconRight, ...iconStyle}}
           onPress={() => dispatch(isAuth(false))}
         />

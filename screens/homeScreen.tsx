@@ -24,7 +24,9 @@ export class HomeScreen extends Component<Props> {
         ) : (
           <View
             style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text style={{top: 50}}>No Questions Available!</Text>
+            <Text style={{top: 50, color: '#000'}}>
+              No Questions Available!
+            </Text>
           </View>
         )}
       </Screen>

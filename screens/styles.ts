@@ -93,17 +93,17 @@ const styles = StyleSheet.create({
   },
   detailLeftTxt: {
     fontSize: 16,
-    fontWeight: '500',
+    fontWeight: '400',
   },
   detailRightView: {
-    flex: 2,
+    flex: 1.25,
     justifyContent: 'center',
     alignItems: 'flex-start',
     paddingRight: '2%',
   },
   detailRightTxt: {
-    fontSize: 16,
-    fontWeight: '400',
+    fontSize: 15,
+    fontWeight: '500',
   },
   detailTitle: {
     width: '100%',

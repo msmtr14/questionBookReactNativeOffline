@@ -33,6 +33,10 @@ export class AskQuestionScreen extends Component<Props> {
     }
   };
 
+  componentWillUnmount() {
+    this.setState({id: 0, title: ''});
+  }
+
   render() {
     const {title} = this.state;
     return (

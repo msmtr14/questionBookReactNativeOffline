@@ -3,6 +3,7 @@ import {
   ADD_NEW_QUEST,
   UPDATE_QUESTION_ANSWER,
   REGISTER_NEW_STUDENT,
+  UPDATE_STUDENT,
 } from '../config';
 
 const initialState: QuestionReducerConfig = {
@@ -16,6 +17,12 @@ function questionReducer(
 ) {
   switch (action.type) {
     case REGISTER_NEW_STUDENT:
+      return {
+        ...state,
+        student: action.payload,
+      };
+
+    case UPDATE_STUDENT:
       return {
         ...state,
         student: action.payload,

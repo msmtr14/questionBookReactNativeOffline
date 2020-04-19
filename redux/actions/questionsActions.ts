@@ -5,12 +5,14 @@ import {
   ADD_NEW_QUEST,
   CHECK_NEW_STUDENT,
   UPDATE_QUESTION_ANSWER,
+  UPDATE_STUDENT,
 } from '../config';
 import {StudentQuestionsConfig, StudentProfileConfig} from '../../utils';
 import {Alert} from 'react-native';
 import {isAuth, getUserProfile} from './authActions';
 const AllQuesAns = store.getState().questionReducer.studentQuestions;
 const AllStudents = store.getState().questionReducer.student;
+const studentId = store.getState().authReducer.profileData.id;
 const dispatch = store.dispatch;
 
 export const getAllQuesAns = () => {
@@ -20,7 +22,21 @@ export const getAllQuesAns = () => {
   };
 };
 
+export const updateStudent = () => {
+  let studentData = AllStudents;
+  const getIndexOfStudent = AllStudents.findIndex(
+    (a: StudentProfileConfig) => a.id === studentId,
+  );
+  studentData[getIndexOfStudent].numberOfQuesAsked += 1;
+
+  return {
+    type: UPDATE_STUDENT,
+    payload: studentData,
+  };
+};
+
 export const addNewQuest = (data: StudentQuestionsConfig) => {
+  dispatch(updateStudent());
   return {
     type: ADD_NEW_QUEST,
     payload: data,

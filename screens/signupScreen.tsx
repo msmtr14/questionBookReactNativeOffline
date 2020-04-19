@@ -27,6 +27,7 @@ export class SignupScreen extends Component<Props> {
       email,
       joiningDate,
       numberOfQuesAsked,
+      studentQuestions: [],
     };
     if (name.length > 2) {
       if (ValidateEmail(email)) {

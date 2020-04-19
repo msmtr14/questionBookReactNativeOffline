@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {styles} from './styles';
@@ -10,7 +10,7 @@ interface Props extends StudentQuestionsConfig {
   navigation?: any;
 }
 
-class QuestionCard extends PureComponent<Props> {
+class QuestionCard extends Component<Props> {
   state = {
     showFull: false,
   };

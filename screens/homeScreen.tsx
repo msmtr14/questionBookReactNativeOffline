@@ -4,19 +4,19 @@ import {connect} from 'react-redux';
 import {Screen, QuestionCard, Text} from '../Components';
 import {FlatList, View} from 'react-native';
 import {NavigationScreenProps} from 'react-navigation';
-import {HomeScreenProps} from '../utils';
+import {HomeScreenProps, reverseArray} from '../utils';
 type Props = HomeScreenProps & NavigationScreenProps;
 
 export class HomeScreen extends Component<Props> {
   render() {
-    const {studentQuestions} = this.props.questionReducer;
-    console.warn(studentQuestions);
+    const {studentQuestions} = this.props.profileData;
+    const sortedData = reverseArray(studentQuestions);
     return (
       <Screen hideHeaderBack headerTitle={'Home Screen'}>
         {studentQuestions.length > 0 ? (
           <FlatList
-            data={this.props.questionReducer.studentQuestions}
-            keyExtractor={(item) => item.id}
+            data={sortedData}
+            keyExtractor={(item) => item.id.toString()}
             renderItem={({item}) => (
               <QuestionCard {...item} navigation={this.props.navigation} />
             )}
@@ -33,7 +33,7 @@ export class HomeScreen extends Component<Props> {
 }
 
 const mapStateToProps = (IState: any) => ({
-  questionReducer: IState.questionReducer,
+  profileData: IState.authReducer.profileData,
 });
 
 export default connect(mapStateToProps)(HomeScreen);

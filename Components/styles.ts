@@ -1,5 +1,4 @@
 import {StyleSheet, ViewStyle} from 'react-native';
-import {screenHeight} from '../utils/screenDimensions';
 export const FULL: ViewStyle = {
   flex: 1,
 };
@@ -14,9 +13,9 @@ const borderRadius = 5;
 export const styles = StyleSheet.create({
   screenContainer: {
     ...FULL,
+    paddingBottom: 200,
   },
   scrollViewStyles: {
-    minHeight: screenHeight,
     paddingHorizontal: '2%',
   },
   textContainer: {
@@ -78,8 +77,9 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 10,
     paddingHorizontal: '2.5%',
-    paddingVertical: 15,
-    marginTop: 20,
+    paddingTop: 15,
+    paddingBottom: 5,
+    marginTop: 10,
     elevation: 2,
     shadowOpacity: 0.6,
     shadowOffset: {

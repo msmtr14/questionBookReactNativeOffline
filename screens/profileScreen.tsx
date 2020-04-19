@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {Text, View, Image} from 'react-native';
 import {connect} from 'react-redux';
 import {Screen} from '../Components';
@@ -7,7 +7,7 @@ import {styles} from './styles';
 import {ProfileScreenProps, StudentProfileConfig} from '../utils';
 import {months} from '../utils/months';
 
-export class ProfileScreen extends PureComponent<ProfileScreenProps> {
+export class ProfileScreen extends Component<ProfileScreenProps> {
   render() {
     const data: StudentProfileConfig = this.props.profileData;
     const joiningDate = data.joiningDate;
@@ -65,7 +65,7 @@ export class ProfileScreen extends PureComponent<ProfileScreenProps> {
                 </View>
                 <View style={{...styles.detailRightView}}>
                   <Text numberOfLines={1} style={{...styles.detailRightTxt}}>
-                    {data.numberOfQuesAsked}
+                    {data.studentQuestions.length}
                   </Text>
                 </View>
               </View>

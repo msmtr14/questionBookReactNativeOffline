@@ -5,15 +5,22 @@ import {
   ADD_NEW_QUEST,
   CHECK_NEW_STUDENT,
   UPDATE_QUESTION_ANSWER,
-  UPDATE_STUDENT,
 } from '../config';
 import {StudentQuestionsConfig, StudentProfileConfig} from '../../utils';
 import {Alert} from 'react-native';
 import {isAuth, getUserProfile} from './authActions';
-const AllQuesAns = store.getState().questionReducer.studentQuestions;
-const AllStudents = store.getState().questionReducer.student;
-const studentId = store.getState().authReducer.profileData.id;
+
 const dispatch = store.dispatch;
+
+export const getStudent = () => {
+  var profileData = store.getState().authReducer.profileData;
+  var AllStudents = store.getState().questionReducer.student;
+  var indexOfStudent = AllStudents.findIndex(
+    (a: StudentProfileConfig) => a.id === profileData.id,
+  );
+  const response = {profileData, AllStudents, indexOfStudent};
+  return response;
+};
 
 export const getAllQuesAns = () => {
   return {
@@ -22,37 +29,31 @@ export const getAllQuesAns = () => {
   };
 };
 
-export const updateStudent = () => {
-  let studentData = AllStudents;
-  const getIndexOfStudent = AllStudents.findIndex(
-    (a: StudentProfileConfig) => a.id === studentId,
-  );
-  studentData[getIndexOfStudent].numberOfQuesAsked += 1;
-
-  return {
-    type: UPDATE_STUDENT,
-    payload: studentData,
-  };
-};
-
 export const addNewQuest = (data: StudentQuestionsConfig) => {
-  dispatch(updateStudent());
+  const student = getStudent();
+  const AllStudent = student.AllStudents;
+  const ques = student.profileData.studentQuestions;
+  ques.push({...data});
+  AllStudent[student.indexOfStudent].studentQuestions = ques;
+  dispatch(getUserProfile(AllStudent[student.indexOfStudent]));
+
   return {
     type: ADD_NEW_QUEST,
-    payload: data,
+    payload: AllStudent,
   };
 };
 
 export const updateAns = (data: StudentQuestionsConfig) => {
-  const quesData = AllQuesAns;
-  const getIndexOfQues = quesData.findIndex(
-    (a: StudentQuestionsConfig) => a.id === data.id,
-  );
-  quesData[getIndexOfQues] = data;
-
+  const student = getStudent();
+  const AllStudent = student.AllStudents;
+  const ques = student.profileData.studentQuestions;
+  const quesInd = ques.findIndex((a: StudentProfileConfig) => a.id === data.id);
+  ques[quesInd] = data;
+  AllStudent[student.indexOfStudent].studentQuestions = ques;
+  dispatch(getUserProfile(AllStudent[student.indexOfStudent]));
   return {
     type: UPDATE_QUESTION_ANSWER,
-    payload: quesData,
+    payload: AllStudent,
   };
 };
 
@@ -69,16 +70,15 @@ export const registerStudent = (data: StudentProfileConfig[]) => {
 };
 
 export const checkNewStudent = (data: StudentProfileConfig) => {
-  let newData: StudentProfileConfig[] = AllStudents;
+  const student = getStudent();
+  let newData: StudentProfileConfig[] = student.AllStudents;
   let status = false;
-  console.warn('data.email : ', data.email);
-  const isStudentPresent = AllStudents.findIndex(
+  const isStudentPresent = newData.findIndex(
     (a: StudentProfileConfig) => a.email === data.email,
   );
-  console.log(isStudentPresent);
   if (isStudentPresent !== -1) {
     Alert.alert('Already Registered!');
-    dispatch(getUserProfile(AllStudents[isStudentPresent]));
+    dispatch(getUserProfile(newData[isStudentPresent]));
     dispatch(isAuth(true));
   } else {
     newData.push(data);

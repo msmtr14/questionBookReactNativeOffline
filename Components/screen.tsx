@@ -5,7 +5,7 @@ import {
   ViewStyle,
   ScrollViewProps,
 } from 'react-native';
-import {styles, FULL} from './styles';
+import {styles} from './styles';
 import {SafeAreaViewProps} from 'react-navigation';
 import Header from './header';
 
@@ -17,6 +17,7 @@ interface ScreenPropsConfig {
   hideHeaderBack?: boolean;
   headerTitle?: string;
   nonSessionCheck?: boolean;
+  scrollViewStyles?: ViewStyle;
   rest?: SafeAreaViewProps;
 }
 
@@ -27,6 +28,7 @@ export class Screen extends Component<ScreenPropsConfig> {
       style,
       scrollViewRest,
       hideHeader,
+      scrollViewStyles,
       headerTitle,
       hideHeaderBack,
       nonSessionCheck,
@@ -43,7 +45,7 @@ export class Screen extends Component<ScreenPropsConfig> {
         )}
         {!preset || preset === 'scroll' ? (
           <ScrollView
-            style={{...FULL, ...styles.scrollViewStyles}}
+            style={{...styles.scrollViewStyles, ...scrollViewStyles}}
             {...scrollViewRest}>
             {this.props.children}
           </ScrollView>

@@ -9,6 +9,7 @@ const initialState: AuthReducerConfig = {
     email: '',
     numberOfQuesAsked: 0,
     joiningDate: '',
+    studentQuestions: [],
   },
 };
 

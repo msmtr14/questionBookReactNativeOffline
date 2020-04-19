@@ -7,7 +7,6 @@ import {
 } from '../config';
 
 const initialState: QuestionReducerConfig = {
-  studentQuestions: [],
   student: [],
 };
 
@@ -31,11 +30,11 @@ function questionReducer(
     case ADD_NEW_QUEST:
       return {
         ...state,
-        studentQuestions: [...state.studentQuestions, {...action.payload}],
+        student: action.payload,
       };
 
     case UPDATE_QUESTION_ANSWER:
-      return {...state, studentQuestions: action.payload};
+      return {...state, student: action.payload};
 
     default:
       return state;

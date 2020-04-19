@@ -11,10 +11,10 @@ export interface StudentProfileConfig {
   email?: string;
   joiningDate: string | number;
   numberOfQuesAsked: number;
+  studentQuestions: StudentQuestionsConfig[];
 }
 
 export interface QuestionReducerConfig {
-  studentQuestions: StudentQuestionsConfig[];
   student: StudentProfileConfig[];
 }
 

@@ -14,15 +14,14 @@ type Props = AskQuestionScreenProps & NavigationScreenProps;
 
 export class AskQuestionScreen extends Component<Props> {
   state: any = {
-    id: Math.floor(Math.random() * Math.pow(10, 9)),
     title: '',
     hasAnswer: false,
   };
 
   _performAddQuest = () => {
-    const {id, title, hasAnswer} = this.state;
+    const {title, hasAnswer} = this.state;
     const data = {
-      id,
+      id: Math.floor(Math.random() * Math.pow(10, 9)),
       title,
       hasAnswer,
     };
@@ -34,7 +33,7 @@ export class AskQuestionScreen extends Component<Props> {
   };
 
   componentWillUnmount() {
-    this.setState({id: 0, title: ''});
+    this.setState({title: ''});
   }
 
   render() {
@@ -66,6 +65,7 @@ export class AskQuestionScreen extends Component<Props> {
 const mapStateToProps = (IState: any) => ({
   questionReducer: IState.questionReducer,
   isAuth: IState.authReducer.isAuth,
+  profileData: IState.authReducer.profileData,
 });
 
 export default connect(mapStateToProps)(AskQuestionScreen);

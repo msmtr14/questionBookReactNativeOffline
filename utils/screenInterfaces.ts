@@ -9,10 +9,12 @@ export interface SignupScreenProps extends ComponentReduxPropsConfig {
 }
 export interface HomeScreenProps extends ComponentReduxPropsConfig {
   questionReducer?: any;
+  profileData?: any;
   isAuth?: boolean;
 }
 
 export interface AskQuestionScreenProps extends ComponentReduxPropsConfig {
+  profileData?: any;
   questionReducer?: any;
   isAuth?: boolean;
 }

@@ -43,7 +43,7 @@ export class AnsTheQuesScreen extends Component<Props> {
     if (title.length > 9) {
       this.props.dispatch(updateAns(data));
     } else {
-      Alert.alert('Ques is required! and should have min 10 chars');
+      Alert.alert('Answer is required! and should have min 10 chars');
     }
   };
 
